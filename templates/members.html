@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Member</title>
+</head>
+<body>
+   <h1>Chama Members</h1>
+   <table id="members_table"></table>
+<script>
+function getChamaMembers(){
+  const url = "http://127.0.0.1:8000/api/chama-members/"
+  fetch(url)
+  .then((resp) => resp.json())
+  .then(function(data){
+    console.log("Members Data: ",data)
+     var results = data;
+      var html = ``;
+      results.forEach((result) => {
+        html += `<tr>
+        	<td>${result.name}</td>
+            <td>${result.id_number}</td>
+            <td>${result.phone_number}</td>
+            <td>${result.email}</td>
+            <td>${result.gender}</td>
+            <td>${result.postal_code}</td>
+            <td>${result.town}</td>
+            <td>${result.country}</td>
+           </tr>`;
+      });
+      document.getElementById("members_table").innerHTML = html;
+
+  
+    });
+}
+  
+getChamaMembers()
+
+</script>
+</body>
+</html>

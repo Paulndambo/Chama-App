@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section id="main-content">
+  <section class="wrapper">
+    <!--overview start-->
+    <div class="row">
+      <div class="col-lg-12">
+        <h3 class="page-header"><i class="fa fa-laptop"></i> Dashboard</h3>
+        <ol class="breadcrumb">
+          <li><i class="fa fa-home"></i><a href="/">Home</a></li>
+          <li><i class="fa fa-laptop"></i>Membership Fees Ledger</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="table-responsive">
+          <section class="panel">
+            <header class="panel-heading">
+              Membership Fees Ledger
+            </header>
+            <table class="table ml-3">
+              <thead>
+                <tr>
+                  <th>Member ID</th>
+                  <th>Amount Paid</th>
+                  <th>Date Paid</th>
+                  
+                </tr>
+              </thead>
+              <tbody>
+        {% for membership_fee in object_list %}
+                <tr>
+                  <td>{{membership_fee.member_id}}</td>
+                  <td>{{membership_fee.amount_paid}}</td>
+                  <td>{{membership_fee.date_paid}}</td>              
+                </tr>
+      {% endfor %}
+              </tbody>
+            </table>
+          </section>
+        </div>
+
+      </div>
+
+  </section>
+</section>
+
+{% endblock content %}

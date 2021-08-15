@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chama Staff</title>
+</head>
+<body>
+ <h2>Chama Staff</h2>
+ <table id="staff_table"></table>   
+<script>
+
+function getChamaStaff (){
+  var url = "http://127.0.0.1:8000/api/chama-staff/";
+  fetch(url)
+  .then((resp) => resp.json())
+  .then(function(data){
+    console.log("Staff Data: ", data)
+          var results = data;
+      var html = ``;
+      results.forEach((result) => {
+        html += `<tr>
+        	<td>${result.member}</td>
+            <td>${result.position}</td>
+            <td>${result.date_appointed}</td>
+            <td>${result.retirement_date}</td>
+           </tr>`;
+      });
+      document.getElementById("staff_table").innerHTML = html;
+
+  
+    });
+}
+getChamaStaff()
+
+
+
+</script>
+</body>
+</html>

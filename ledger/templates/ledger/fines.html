@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section id="main-content">
+  <section class="wrapper">
+    <!--overview start-->
+    <div class="row">
+      <div class="col-lg-12">
+        <h3 class="page-header"><i class="fa fa-laptop"></i> Dashboard</h3>
+        <ol class="breadcrumb">
+          <li><i class="fa fa-home"></i><a href="/">Home</a></li>
+          <li><i class="fa fa-laptop"></i>Chama Fines Ledger</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="table-responsive">
+          <section class="panel">
+            <header class="panel-heading">
+              Fines Ledger
+            </header>
+            <table class="table ml-3">
+              <thead>
+                <tr>
+                  <th>Member</th>
+                  <th>Reason</th>
+                  <th>Amount Fined</th>
+                  <th>Date Fined</th>
+               
+                </tr>
+              </thead>
+              <tbody>
+        {% for fine in object_list %}
+                <tr>
+                  <td>{{fine.member_id}}</td>
+                  <td>{{fine.reason}}</td>
+                  <td>{{fine.amount_amount}}</td>
+                  <td>{{fine.date_fined}}</td>                 
+                </tr>
+      {% endfor %}
+              </tbody>
+            </table>
+          </section>
+        </div>
+
+      </div>
+
+  </section>
+</section>
+
+{% endblock content %}
