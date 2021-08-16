@@ -3,6 +3,46 @@ from django.views.generic import ListView, CreateView, DetailView, UpdateView, D
 from . models import *
 from django.urls import reverse_lazy
 # Create your views here.
+def loan_analytics(request):
+	loan_values = []
+	personal_loans = LoanFinancial.objects.values('personal_loans').get(year=2021)
+	for item in personal_loans.values():
+		personal_loans_value = item
+
+	personal_loans_repayments = LoanFinancial.objects.values('personal_loans_repayments').get(year=2021)
+	for item in personal_loans_repayments.values():
+		personal_loans_payments = item
+
+	personal_loans_profits = LoanFinancial.objects.values('personal_loans_profit').get(year=2021)
+	for item in personal_loans_profits.values():
+		personal_loans_profit = item
+		print(personal_loans_profit)
+
+	group_loans = LoanFinancial.objects.values('group_loans').get(year=2021)
+	for item in group_loans.values():
+		group_loans_value = item
+		print(group_loans_value)
+
+	group_loans_repayments = LoanFinancial.objects.values('group_loans_repayments').get(year=2021)
+	for item in group_loans_repayments.values():
+		group_loans_payments = item
+		print(group_loans_payments)
+
+	group_loans_profits = LoanFinancial.objects.values('group_loans_profit').get(year=2021)
+	for item in group_loans_profits.values():
+		group_loans_profit = item
+		print(group_loans_profit)
+		
+		
+	loan_values.append(personal_loans_value)
+	loan_values.append(personal_loans_payments)
+	loan_values.append(personal_loans_profit)
+	loan_values.append(group_loans_value)
+	loan_values.append(group_loans_payments)
+	loan_values.append(group_loans_profit)
+	print(loan_values)
+	return render(request, "mikopo/loan-analytics.html", {"loan_values": loan_values})
+
 class GroupLoanApplications(ListView):
 	model = GroupLoanApplication
 	template_name = "mikopo/group-loan-applications.html"

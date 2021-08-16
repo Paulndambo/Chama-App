@@ -1,5 +1,6 @@
 from django.urls import path
 from . views import *
+from . import views
 
 urlpatterns = [
 	path("group-loans/", GroupLoans.as_view(), name="group-loans"),
@@ -23,4 +24,8 @@ urlpatterns = [
 
 	path("group-loan-details/<int:pk>/", GroupLoanDetails.as_view(), name="group-loan-details"),
 	path("personal-loan-details/<int:pk>/", PersonalLoanDetails.as_view(), name="personal-loan-details"),
+
+	#Analytics
+	path("loan-analytics/", views.loan_analytics, name="loan-analytics"),
+
 ]	
