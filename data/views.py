@@ -1,9 +1,24 @@
 from django.shortcuts import render
 from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView
 from . models import *
+from django.contrib.auth.models import User
 # Create your views here.
+def index(request):
+    return render(request, "home.html")
+
 def home(request):
-    return render(request, "index.html")
+    users = User.objects.all().count()
+    members = Member.objects.all().count()
+    staff = Staff.objects.all().count()
+    groups = Group.objects.all().count()
+
+    context = {
+        "users": users,
+        "members": members,
+        "staff": staff,
+        "groups": groups
+    }
+    return render(request, "index.html", context)
 
 class GroupsList(ListView):
     model = Group
@@ -31,6 +46,10 @@ class MembersCreateView(CreateView):
     model = Member
     fields = '__all__'
     template_name = "data/add_member.html"
+
+class MemberDetails(DetailView):
+    model = Member
+    template_name = "data/member-details.html"
 
 class StaffListView(ListView):
     model = Staff

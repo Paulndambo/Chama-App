@@ -10,6 +10,8 @@
         <ol class="breadcrumb">
           <li><i class="fa fa-home"></i><a href="/">Home</a></li>
           <li><i class="fa fa-laptop"></i>Personal Loans Applications</li>
+          <li><i class="fa fa-plus"></i><a href="{% url 'apply-personal-loan' %}">Apply Personal Loan</a></li>
+          <li><i class=""></i><a href="{% url 'personal-loans' %}">Personal Loans Awarded</a></li>
         </ol>
       </div>
     </div>
@@ -43,10 +45,10 @@
                   	<a href="#" class="btn btn-info">Details!</a>
                   </td>
                   <td>
-                  	<a href="#" class="btn btn-primary">Update!</a>
+                  	<a href="{% url 'approve-personal-loan' personal_loan_application.pk %}" class="btn btn-primary">Update!</a>
                   </td>
                   <td>
-                  	<a href="#" class="btn btn-danger">Delete!</a>
+                  	<a href="{% url 'delete-personal-loan-application' personal_loan_application.pk %}" class="btn btn-danger">Delete!</a>
                   </td>
                  
                 </tr>

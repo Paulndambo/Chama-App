@@ -41,6 +41,7 @@ urlpatterns = [
     path("accounts/", include("accounts.urls")),
     path("finance/", include("finance.urls")),
     path("chama-ledger/", include("ledger.urls")),
+    path("loans/", include("mikopo.urls")),
     #path("api/", include("api.urls")),
     #path("swagger/", schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
     #path("redoc/", schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),

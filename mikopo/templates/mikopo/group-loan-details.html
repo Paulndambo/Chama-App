@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+{% if user.is_authenticated %}
+    <section id="main-content">
+      <section class="wrapper">
+        <div class="row">
+          <div class="col-lg-12">
+            <h3 class="page-header"><i class="fa fa-user-md"></i> Group Loan Details</h3>
+            <ol class="breadcrumb">
+              <li><i class="fa fa-home"></i><a href="{% url 'group-loans' %}">Group Loans</a></li>
+              
+            </ol>
+          </div>
+        </div>
+        <div class="row">
+<section>
+  <div id="profile" class="tab-pane">
+    <section class="panel">
+      <div class="panel-body bio-graph-info">
+        <h1>Group Loan Details</h1>
+        <div class="row">
+          <div class="bio-row">
+            <p><span>Group </span>: {{group_loan.group}} </p>
+          </div>
+          <div class="bio-row">
+            <p><span>Amount Applied </span>: {{group_loan.amount_applied}}</p>
+          </div>
+          <div class="bio-row">
+            <p><span>Amount Awarded </span>: {{group_loan.amount_awarded}}</p>
+          </div>
+          <div class="bio-row">
+            <p><span>Loan Type</span>: {{group_loan.loan_type}}</p>
+          </div>
+          <div class="bio-row">
+            <p><span>Repay Amount</span>: {{group_loan.amount_to_repay}}</p>
+          </div>
+          <div class="bio-row">
+            <p><span>Amount Repaid </span>: {{group_loan.amount_repaid}}</p>
+          </div>
+          <div class="bio-row">
+            <p><span>Balance </span>: {{group_loan.balance}}</p>
+          </div>
+          <div class="bio-row">
+            <p><span>Disbursed By </span>:{{group_loan.disbursed_by}}</p>
+          </div>
+          <div class="bio-row">
+            <p><span>Date Awarded </span>: {{group_loan.date_awarded}}</p>
+          </div>
+          <div class="bio-row">
+            <p><span>Date Due </span>: {{group_loan.repay_by}}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</section>
+
+  </section>
+</section>
+{% endif %}
+{% endblock content %}

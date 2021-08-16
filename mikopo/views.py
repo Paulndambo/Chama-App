@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView
 from . models import *
+from django.urls import reverse_lazy
 # Create your views here.
 class GroupLoanApplications(ListView):
 	model = GroupLoanApplication
@@ -55,7 +56,7 @@ class ApplyPersonalLoan(CreateView):
 class ApprovePersonalLoan(UpdateView):
 	model = MemberLoanApplication
 	fields = ["approve_or_decline"]
-	template_name = "personal-loan-approve.html"
+	template_name = "mikopo/personal-loan-approve.html"
 
 class PersonalLoans(ListView):
 	model = PersonalLoan
@@ -74,3 +75,17 @@ class PayPersonalLoan(CreateView):
 	model = PayPersonalLoan
 	fields = "__all__"
 	template_name = "mikopo/pay-personal-loan.html"
+
+class DeletePersonalLoanApplicaion(DeleteView):
+	model = MemberLoanApplication
+	template_name = "mikopo/delete-personal-loan-application.html"
+	success_url = reverse_lazy("personal-loans-applications")
+
+
+class PersonalLoanDetails(DetailView):
+	model = PersonalLoan
+	template_name = "mikopo/personal-loan-details.html"
+
+class GroupLoanDetails(DetailView):
+	model = GroupLoan
+	template_name = "mikopo/group-loan-details.html"

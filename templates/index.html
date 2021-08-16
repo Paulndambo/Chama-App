@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
+{% if user.is_authenticated %}
 <section id="main-content">
   <section class="wrapper">
     <!--overview start-->
@@ -17,8 +18,8 @@
     <div class="row">
       <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
         <div class="info-box blue-bg">
-          <i class="fa fa-engineer"></i>
-          <div class="count">{{staff_count}}</div>
+          <i class="fa fa-user"></i>
+          <div class="count">{{staff}}</div>
           <div class="title">Staff</div>
         </div>
         <!--/.info-box-->
@@ -28,8 +29,8 @@
       <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
         <div class="info-box brown-bg">
           <i class="fa fa-user"></i>
-          <div class="count">{{farmers_count}}</div>
-          <div class="title">Farmers</div>
+          <div class="count">{{members}}</div>
+          <div class="title">Members</div>
         </div>
         <!--/.info-box-->
       </div>
@@ -38,8 +39,8 @@
       <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
         <div class="info-box dark-bg">
           <i class="fa fa-thumbs-bag"></i>
-          <div class="count">{{current_year_deliveries}}</div>
-          <div class="title">Deliveries 2021</div>
+          <div class="count">0</div>
+          <div class="title">Users</div>
         </div>
         <!--/.info-box-->
       </div>
@@ -48,8 +49,8 @@
       <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
         <div class="info-box green-bg">
           <i class="fa fa-bag"></i>
-          <div class="count">{{deliveries_count}}</div>
-          <div class="title">Total Deliveries</div>
+          <div class="count">{{groups}}</div>
+          <div class="title">Groups</div>
         </div>
         <!--/.info-box-->
       </div>
@@ -58,5 +59,7 @@
     </div>
   </section>
 </section>
-
+{% else %}
+  {% include "home.html" %}
+{% endif %}
 {% endblock content %}

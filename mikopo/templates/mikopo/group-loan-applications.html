@@ -34,7 +34,7 @@
               <tbody>
         {% for group_loan_application in object_list %}
                 <tr>
-                  <td>{{group_loan_application.member}}</td>
+                  <td>{{group_loan_application.group}}</td>
                   <td>{{group_loan_application.loan_type}}</td>
                   <td>{{group_loan_application.amount_applying}}</td>
                   <td>{{group_loan_application.get_loan_status}}</td>
@@ -43,7 +43,7 @@
                   	<a href="#" class="btn btn-info">Details!</a>
                   </td>
                   <td>
-                  	<a href="#" class="btn btn-primary">Update!</a>
+                  	<a href="{% url 'approve-group-loan' group_loan_application.pk %}" class="btn btn-primary">Update!</a>
                   </td>
                   <td>
                   	<a href="#" class="btn btn-danger">Delete!</a>
