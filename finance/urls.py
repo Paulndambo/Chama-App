@@ -23,4 +23,9 @@ urlpatterns = [
     path("membership-renew/", MembershipRenew.as_view(), name="membership-renew"),
     path("chama-expenditures/", ChamaExpenditures.as_view(), name="chama-expenditures"),
     path("new-chama-expenditure/", AddChamaExpenditure.as_view(), name="new-chama-expenditure"),
-]
+
+    #member portal
+    path("member-savings/", views.member_savings, name="member-savings"),
+    path("member-weekly-payments/", views.member_weekly_payments, name="member-weekly-paymnets"),
+    path("current-member-total-savings/", views.current_member_total_savings, name="current-member-total-savings"),
+]   

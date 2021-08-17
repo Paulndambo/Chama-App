@@ -1,4 +1,5 @@
-{% extends "base.html" %}
+{% extends "member-base.html" %}
+
 {% block content %}
 <section id="main-content">
   <section class="wrapper">
@@ -8,8 +9,7 @@
         <h3 class="page-header"><i class="fa fa-laptop"></i> Dashboard</h3>
         <ol class="breadcrumb">
           <li><i class="fa fa-home"></i><a href="/">Home</a></li>
-          <li><i class="fa fa-laptop"></i>Chama Groups</li>
-          <li><i class="fa fa-pencil"></i><a href="{% url 'add-group' %}">Add New Group</a></li>
+          <li><i class="fa fa-laptop"></i>My Weekly Payments</li>
         </ol>
       </div>
     </div>
@@ -18,28 +18,23 @@
       <div class="table-responsive">
           <section class="panel">
             <header class="panel-heading">
-              Chama Groups List
+              My Weekly Payments List
             </header>
             <table class="table ml-3">
               <thead>
                 <tr>
-                  <th>Group No.</th>
-                  <th>Name</th>
-                  <th>Date Formed</th>
+                  <th>Amount</th>
                   <th>Year</th>
-                  <th>Members</th>
-                  <th>Chairperson</th>
+                   <th>Date Submitted</th>                
                 </tr>
               </thead>
               <tbody>
-        {% for group in object_list %}
+        {% for member_weekly_payment in member_weekly_payments %}
                 <tr>
-                  <td>{{group.group_id}}</td>
-                  <td>{{group.title}}</td>
-                  <td>{{group.date_formed}}</td>
-                  <td>{{group.year}}</td>
-                  <td>{{group.number_of_members}}</td>
-                  <td>{{group.chairperson}}</td>
+                  <td>{{member_weekly_payment.amount}}</td>
+                  <td>{{member_weekly_payment.year}}</td>
+                  <td>{{member_weekly_payment.date_paid}}</td>
+                 
                 </tr>
       {% endfor %}
               </tbody>

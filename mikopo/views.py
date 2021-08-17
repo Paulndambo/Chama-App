@@ -3,6 +3,24 @@ from django.views.generic import ListView, CreateView, DetailView, UpdateView, D
 from . models import *
 from django.urls import reverse_lazy
 # Create your views here.
+def member_loans(request):
+	member_loans = PersonalLoan.objects.filter(member=request.user.member.id_number)
+	print(member_loans)
+	return render(request, "member-loans.html", {"member_loans": member_loans})
+
+def member_stats(request):
+	member_loans_count = PersonalLoan.objects.filter(member=request.user.member.id_number).count()
+	
+	context = {
+		"member_loans_count": member_loans_count
+	}
+	return render(request, "member-home", context)
+
+def member_loan_applications(request):
+	member_loan_applications = MemberLoanApplication.objects.filter(member=request.user.member.id_number)
+	print(member_loan_applications)
+	return render(request, "member-loans-history.html", {"member_loan_applications": member_loan_applications})
+
 def loan_analytics(request):
 	loan_values = []
 	personal_loans = LoanFinancial.objects.values('personal_loans').get(year=2021)

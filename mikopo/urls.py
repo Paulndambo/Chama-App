@@ -28,4 +28,8 @@ urlpatterns = [
 	#Analytics
 	path("loan-analytics/", views.loan_analytics, name="loan-analytics"),
 
+	#Member Portal
+	path("member-loans/", views.member_loans, name="member-loans"),
+	path("member-loan-applications/", views.member_loan_applications, name="member-loan-applications"),
+
 ]	

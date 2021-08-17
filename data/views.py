@@ -3,8 +3,17 @@ from django.views.generic import ListView, CreateView, DetailView, UpdateView, D
 from . models import *
 from django.contrib.auth.models import User
 # Create your views here.
+def login_controller(request):
+    return render(request, "controller.html")
+
 def index(request):
     return render(request, "home.html")
+
+def member_home(request):
+    return render(request, "member-home.html")
+
+def member_profile(request):
+    return render(request, "member-profile.html")
 
 def home(request):
     users = User.objects.all().count()
@@ -29,6 +38,11 @@ class GroupCreateView(CreateView):
     fields = "__all__"
     template_name = "data/add_group.html"
 
+class UpdateGroup(UpdateView):
+    model = Group
+    fields = "__all__"
+    template_name = "data/update-group.html"
+
 class GroupMembershipList(ListView):
     model = GroupMembership
     template_name = "data/group_members.html"
@@ -46,6 +60,11 @@ class MembersCreateView(CreateView):
     model = Member
     fields = '__all__'
     template_name = "data/add_member.html"
+
+class UpdateMember(UpdateView):
+    model = Member
+    fields = "__all__"
+    template_name = "data/update-member.html"
 
 class MemberDetails(DetailView):
     model = Member

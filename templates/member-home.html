@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "member-base.html" %}
 
 {% block content %}
 {% if user.is_authenticated %}
@@ -19,9 +19,8 @@
     <div class="row">
       <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
         <div class="info-box blue-bg">
-          <i class="fa fa-user"></i>
-          <div class="count">{{staff}}</div>
-          <div class="title">Staff</div>
+          <div class="count"></div>
+          <div class="title">My Loans</div>
         </div>
         <!--/.info-box-->
       </div>
@@ -29,9 +28,8 @@
 
       <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
         <div class="info-box brown-bg">
-          <i class="fa fa-user"></i>
-          <div class="count">{{members}}</div>
-          <div class="title">Members</div>
+          <div class="count"></div>
+          <div class="title">Savings</div>
         </div>
         <!--/.info-box-->
       </div>
@@ -39,9 +37,8 @@
 
       <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
         <div class="info-box dark-bg">
-          <i class="fa fa-user"></i>
-          <div class="count">{{users}}</div>
-          <div class="title">Users</div>
+          <div class="count"></div>
+          <div class="title">Loan Applications</div>
         </div>
         <!--/.info-box-->
       </div>
@@ -50,8 +47,8 @@
       <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
         <div class="info-box green-bg">
           <i class="fa fa-bag"></i>
-          <div class="count">{{groups}}</div>
-          <div class="title">Groups</div>
+          <div class="count"></div>
+          <div class="title">Savings</div>
         </div>
         <!--/.info-box-->
       </div>

@@ -1,0 +1,9 @@
+{% if user.is_authenticated %}
+	{% if user.is_superuser %}
+		{% include "index.html" %}
+	{% else %}
+		{% include "member-profile.html" %}
+	{% endif %}
+{% else %}
+	{% include "home.html" %}
+{% endif %}

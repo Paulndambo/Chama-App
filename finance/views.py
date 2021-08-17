@@ -1,7 +1,23 @@
 from django.shortcuts import render
 from . models import *
 from django.views.generic import ListView, CreateView
+from . import views
 # Create your views here.
+def member_savings(request):
+	member_savings = Saving.objects.filter(member=request.user.member.id_number)
+	print(member_savings)
+	return render(request, "member-savings.html", {"member_savings": member_savings})
+
+def member_weekly_payments(request):
+	member_weekly_payments = WeeklyPayment.objects.filter(member=request.user.member.id_number)
+	print(member_weekly_payments)
+	return render(request, "member-weekly-payments.html", {"member_weekly_payments": member_weekly_payments})
+
+def current_member_total_savings(request):
+	current_member_total_savings = MemberTotalSaving.objects.filter(member=request.user.member.id_number)
+	print(current_member_total_savings)
+	return render(request, "member-total-savings.html", {"current_member_total_savings": current_member_total_savings})
+
 class ChamaExpenditures(ListView):
 	model = ChamaExpenditure
 	template_name = "finance/expeditures.html"

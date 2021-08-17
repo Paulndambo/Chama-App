@@ -7,11 +7,6 @@ from django.contrib.auth.models import User
 #Loan Serializers
 
 #Lenders serializers
-class LenderSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Lender
-        fields = "__all__"
-
 #Finance serializers
 class MemberRegistrationSerializer(serializers.ModelSerializer):
     class Meta:
